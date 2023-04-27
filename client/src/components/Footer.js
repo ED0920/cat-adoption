@@ -22,6 +22,7 @@ const Footer = () => {
     return (
         <div className="Nav" style={NavBar}>
             <div className="Nav" style={Nav}>
+
                 <Link to={"/faq"} style={navStyle}> FAQ </Link>
                 <Link to={"/contact"} style={navStyle}>Contact Us</Link>
             </div>

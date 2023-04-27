@@ -34,7 +34,7 @@ const Header = () => {
     return (
         <div className="Nav" style={NavBar}>
 
-            <img style={icon} src={require('../assets/cat--v1.png')} alt="logo" />
+            <img style={icon} src={require('../assets/another.png')} alt="logo" />
 
 
 
