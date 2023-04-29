@@ -1,0 +1,32 @@
+[
+  {
+    "state": "NSW",
+    "name": "Luna",
+    "age": 3,
+    "breed": "American Bobtail",
+    "colour": "Particolour",
+    "personality": "Active",
+    "bioText": "Luna is 3 years old. She is an active cat and child friendly",
+    "imgFilename": "catImage_1.png"
+  },
+  {
+    "state": "NSW",
+    "name": "Tiger",
+    "age": 11,
+    "breed": "Balinese",
+    "colour": "Pointed",
+    "personality": "Sociable",
+    "bioText": "Tiger is 11 years old. He is a very sociable cat, gets along with both people and other cats.",
+    "imgFilename": "catImage_2.png"
+  },
+  {
+    "state": "Vic",
+    "name": "Duck",
+    "age": 7,
+    "breed": "Bombay",
+    "colour": "Solid",
+    "personality": "Aggressive",
+    "bioText": "Duck is a 7 year old Bombay. Duck is very much a loner and will become agressive if approached. Experienced owners only. Not suitable for kids.",
+    "imgFilename": "catImage_3.png"
+  }
+]
