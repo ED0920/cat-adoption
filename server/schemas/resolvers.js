@@ -7,8 +7,26 @@ const resolvers = {
     users: async () => {
       return User.find().populate('cats');
     },
-    cats: async () => {
+    allCats: async () => {
       return Cat.find({})
+    },
+    availableCats: async () => {
+      return Cat.find({ adopted: false })
+    },
+    adoptedCats: async () => {
+      return Cat.find({ adopted: true })
+    },
+    availableCatsByAge: async (parent, { age }) => {
+      return Cat.find({ age: {$lte: age} })
+    },
+    availableCatsByLocation: async (parent, { state }) => {
+      return Cat.find({ state: state })
+    },
+    availableCatsByColour: async (parent, { colour }) => {
+      return Cat.find({ colour: colour })
+    },
+    availableCatsByAgeLocationColour: async (parent, { age, state, colour }) => {
+      return Cat.find({ age: {$lte: age}, state: state, colour: colour })
     },
   },
 };
