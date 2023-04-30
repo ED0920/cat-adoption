@@ -3,16 +3,18 @@
     "state": "NSW",
     "name": "Luna",
     "age": 3,
+    "sex": "Female",
     "breed": "American Bobtail",
     "colour": "Particolour",
     "personality": "Active",
-    "bioText": "Luna is 3 years old. She is an active cat and child friendly",
+    "bioText": "Luna is 3 years old. She is an active cat and child friendly.",
     "imgFilename": "catImage_1.png"
   },
   {
     "state": "NSW",
     "name": "Tiger",
     "age": 11,
+    "sex": "Male",
     "breed": "Balinese",
     "colour": "Pointed",
     "personality": "Sociable",
@@ -23,10 +25,55 @@
     "state": "Vic",
     "name": "Duck",
     "age": 7,
+    "sex": "Male",
     "breed": "Bombay",
     "colour": "Solid",
     "personality": "Aggressive",
     "bioText": "Duck is a 7 year old Bombay. Duck is very much a loner and will become agressive if approached. Experienced owners only. Not suitable for kids.",
     "imgFilename": "catImage_3.png"
+  },
+  {
+    "state": "Vic",
+    "name": "Leo",
+    "age": 4,
+    "sex": "Male",
+    "breed": "Siamese",
+    "colour": "Pointed",
+    "personality": "Playful",
+    "bioText": "Leo is a 4 year old Siamese. Leo is a sociable and extremely playful cat. Kid friendly. Ideally be rehomed to a familiy that has another cat for Leo to play with.",
+    "imgFilename": "catImage_4.png"
+  },
+  {
+    "state": "Qld",
+    "name": "Nala",
+    "age": 1,
+    "sex": "Female",
+    "breed": "Ragdoll",
+    "colour": "Shaded",
+    "personality": "Playful",
+    "bioText": "Ragdolls are obedient by nature. Ragdolls are so smart they can pick up good habits, traits, and tricks. Ragdoll loves peoples and cuddle. Nala is very much a stereotypical Ragdoll. Nala is only 1. It would be great to find Nala a foreever home.",
+    "imgFilename": "catImage_5.png"
+  },
+  {
+    "state": "Qld",
+    "name": "Abby",
+    "age": 14,
+    "sex": "Female",
+    "breed": "Abyssinian",
+    "colour": "Particolour",
+    "personality": "Active",
+    "bioText": "Abby is a 14 year old Abyssinian. Inspite of her age, she is still a very active cat. Abby loves to play and will grab anything that grabs her attention. Best to have a few toys for Abby to play with.",
+    "imgFilename": "catImage_6.png"
+  },
+  {
+    "state": "Qld",
+    "name": "Ollie",
+    "age": 6,
+    "sex": "Male",
+    "breed": "Australian Mist",
+    "colour": "Particolour",
+    "personality": "Sociable",
+    "bioText": "Ollie is a 6 year old Australian Mist. Ollie loves to be around other cats and people. Ollie is not the greatest with kids and best suited to an experiences owner with other cats for Ollie to socialise with.",
+    "imgFilename": "catImage_7.png"
   }
 ]

@@ -18,6 +18,11 @@ const catSchema = new Schema({
     min: 0,
     max: 40,
   },
+  sex: {
+    type: String,
+    required: true,
+    enum: ['Male', 'Female'],
+  },
   breed: {
     type: String,
     required: true,
