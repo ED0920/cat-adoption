@@ -21,39 +21,43 @@ const Button = {
     width: '100%'
 }
 
+const Details = ({ info, type, name, values, onChange }) => {
+    return (
+        <div >
+            <label> {info}
+                <input style={{
+                    width: '100%',
+                    height: '30px',
+                    display: "flex",
+                    boxSizing: 'border-box',
+                }}
+                    type={type}
+                    name={name}
+                    value={values[name] || ""}
+                    required
+                    onChange={onChange}
+                    key={name}
+                />
+            </label>
+
+        </div >
+    )
+}
+
 function SignUp() {
     const [inputs, setInputs] = useState({});
+
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({ ...values, [name]: value }))
+
     }
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(inputs);
     }
 
-    const Details = ({ info, type, name, key }) => {
-        return (
-            <div >
-                <label> {info}
-                    <input style={{
-                        width: '100%',
-                        height: '30px',
-                        display: "flex",
-                        boxSizing: 'border-box',
-                    }}
-                        type={type}
-                        name={name}
-                        value={inputs[key] || ""}
-                        required
-                        onChange={handleChange}
-                    />
-                </label>
-
-            </div >
-        )
-    }
 
     return (
         <div style={body}>
@@ -64,39 +68,44 @@ function SignUp() {
                     info={"First Name:"}
                     type={"text"}
                     name={"firstname"}
-                    key={"firstname"}
+                    values={inputs}
+                    onChange={handleChange}
                 />
-
                 <Details
                     info={"Last Name:"}
                     type={"text"}
                     name={"lastname"}
-                    key={"lastname"}
+                    values={inputs}
+                    onChange={handleChange}
                 />
                 <Details
                     info={"Phone Number:"}
-                    type={"interger"}
+                    type={"integer"}
+                    values={inputs}
+                    onChange={handleChange}
 
                 />
                 <Details
                     info={"Email:"}
                     type={"text"}
                     name={"email"}
-                    key={"email"}
+                    values={inputs}
+                    onChange={handleChange}
                 />
                 <Details
                     info={"Password:"}
                     type={"text"}
                     name={"password"}
-                    key={"password"}
+                    values={inputs}
+                    onChange={handleChange}
                 />
                 <Details
                     info={"Re-enter Password:"}
                     type={"text"}
                     name={"re-enterpassword"}
-                    key={"re-enterpassword"}
+                    values={inputs}
+                    onChange={handleChange}
                 />
-
 
                 <button style={Button} type="submit">Create an account</button>
 
