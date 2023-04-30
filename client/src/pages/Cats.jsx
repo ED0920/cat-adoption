@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 
 const body = {
-  minHeight: "85vh",
-  background: "#F9F4F1",
+  minHeight: "65vh",
+  background: "#6461A0",
   color: "#444c54",
 };
 function Cats() {

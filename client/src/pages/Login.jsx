@@ -4,8 +4,8 @@ import Footer from "../components/Footer";
 import Loginpg from "../components/Login";
 
 const body = {
-  minHeight: "60vh",
-  //   background: "#6461A0",
+  minHeight: "65vh",
+  background: "#6461A0",
   color: "#444c54",
 };
 

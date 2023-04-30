@@ -1,0 +1,32 @@
+[
+  {
+    "username": "Elisa Do",
+    "email": "elisa@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "Jisha bhat",
+    "email": "jisha@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "Georgia Davenport",
+    "email": "georgia@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "Lillian Nolan",
+    "email": "lillian@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "Roger Flynn",
+    "email": "roger@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "Tyler Shaw",
+    "email": "tyler@example.com",
+    "password": "password123"
+  }
+]
