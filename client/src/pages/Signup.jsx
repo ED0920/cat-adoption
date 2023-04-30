@@ -1,23 +1,23 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card from "../components/Card";
+import SignUp from "../components/Signup";
 
 const body = {
-  minHeight: "85vh",
-  background: "#F9F4F1",
+  minHeight: "70vh",
   color: "#444c54",
 };
-function Cats() {
+
+function Signup() {
   return (
     <>
       <Header />
       <div style={body}>
-        <Card />
+        <SignUp />
       </div>
       <Footer />
     </>
   );
 }
 
-export default Cats;
+export default Signup;

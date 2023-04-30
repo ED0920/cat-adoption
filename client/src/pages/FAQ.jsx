@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 const body = {
   background: "#F9F4F1",
   color: "#444c54",
-  padding: "100px",
+  padding: "5%",
 };
 
 const title = {
@@ -15,9 +15,6 @@ const title = {
 };
 const list = {
   listStyle: "none",
-};
-const question = {
-  fontWeight: "bold",
 };
 
 const Spacer = ({ y = 10, x = 0 }) => {

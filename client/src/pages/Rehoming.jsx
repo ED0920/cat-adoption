@@ -5,19 +5,13 @@ import Footer from "../components/Footer";
 const body = {
   background: "#F9F4F1",
   color: "#444c54",
-  padding: "100px",
+  padding: "5%",
 };
 
 const title = {
   fontFamily: "monaco",
   fontWeight: "bold",
   fontSize: "26px",
-};
-const list = {
-  listStyle: "none",
-};
-const question = {
-  fontWeight: "bold",
 };
 
 const Spacer = ({ y = 10, x = 0 }) => {
@@ -31,7 +25,7 @@ function Rehoming() {
       <div style={body}>
         <div style={title}>Rehoming a fur baby</div>
         <br></br>
-        <div>To adopt:</div>
+        <div>How to adopt:</div>
         <ol>
           <li>Submit an enquiry</li>
           <Spacer y={20} />
@@ -45,10 +39,12 @@ function Rehoming() {
               <li>Do you ahve any other pets?</li>
             </ul>
           </li>
-
+          <Spacer y={20} />
           <li>Meet the cats in person and find out if you bond with them.</li>
-
-          <li></li>
+          <Spacer y={20} />
+          <li>
+            If all goes well, we will begin the fostering and adoption process.
+          </li>
         </ol>
       </div>
       <Footer />

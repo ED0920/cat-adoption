@@ -10,8 +10,7 @@ const formStyle = {
     border: "3px solid #C89B7B",
     padding: "10px",
     lineHeight: "50px",
-    borderRadius: "5px"
-
+    borderRadius: "5px",
 }
 const Button = {
     height: '30px',
@@ -20,6 +19,7 @@ const Button = {
     borderRadius: "3px",
     width: '100%'
 }
+
 
 function SignUp() {
     const [inputs, setInputs] = useState({});
@@ -35,13 +35,13 @@ function SignUp() {
 
     const Details = ({ info, type, name, key }) => {
         return (
-            <div >
+            <div>
                 <label> {info}
                     <input style={{
                         width: '100%',
                         height: '30px',
-                        display: "flex",
                         boxSizing: 'border-box',
+                        display: "flex",
                     }}
                         type={type}
                         name={name}
@@ -59,25 +59,8 @@ function SignUp() {
         <div style={body}>
 
             <form style={formStyle} onSubmit={handleSubmit}>
-                <h1 style={{ textAlign: "center" }}>Create an account</h1>
-                <Details
-                    info={"First Name:"}
-                    type={"text"}
-                    name={"firstname"}
-                    key={"firstname"}
-                />
+                <h1 style={{ textAlign: "center" }}>Login </h1>
 
-                <Details
-                    info={"Last Name:"}
-                    type={"text"}
-                    name={"lastname"}
-                    key={"lastname"}
-                />
-                <Details
-                    info={"Phone Number:"}
-                    type={"interger"}
-
-                />
                 <Details
                     info={"Email:"}
                     type={"text"}
@@ -90,15 +73,8 @@ function SignUp() {
                     name={"password"}
                     key={"password"}
                 />
-                <Details
-                    info={"Re-enter Password:"}
-                    type={"text"}
-                    name={"re-enterpassword"}
-                    key={"re-enterpassword"}
-                />
 
-
-                <button style={Button} type="submit">Create an account</button>
+                <button style={Button} value="Submit" type="submit">Login</button>
 
             </form >
         </div >

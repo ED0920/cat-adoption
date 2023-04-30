@@ -43,7 +43,7 @@ const Header = () => {
                 <Link to={"/cats"} style={navStyle}>Cats Available for Adoption</Link>
                 <Link to={"/rehome"} style={navStyle}>Rehoming Services</Link>
                 <Link to={"/login"} style={navStyle}>Login</Link>
-
+                <Link to={"/signup"} style={navStyle}>Sign Up</Link>
             </div>
         </div >
     )
