@@ -3,9 +3,10 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const body = {
+  minHeight: "55vh",
   background: "#F9F4F1",
   color: "#444c54",
-  padding: "100px",
+  padding: "5vh",
 };
 
 const title = {
