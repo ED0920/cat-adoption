@@ -38,6 +38,12 @@ const typeDefs = gql`
     availableCatsByColour(colour: String!): [Cat]
     availableCatsByAgeLocationColour(age: Int!, state: String!, colour: String!): [Cat]
   }
+
+  type Mutation {
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
+    adoptACat(userId: ID!, catId: ID!): User
+  }
 `;
 
 module.exports = typeDefs;
