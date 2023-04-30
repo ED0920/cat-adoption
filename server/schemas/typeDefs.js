@@ -14,6 +14,7 @@ const typeDefs = gql`
     state: String
     name: String
     age: Int
+    sex: String
     breed: String
     colour: String
     personality: String
