@@ -17,9 +17,6 @@ const title = {
 const list = {
   listStyle: "none",
 };
-const question = {
-  fontWeight: "bold",
-};
 
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;

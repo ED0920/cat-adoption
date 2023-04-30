@@ -1,16 +1,18 @@
 
 import './App.css';
-import Header from './components/Header';
+
 import AboutUs from './pages/AboutUs';
 import Cats from './pages/Cats';
 import ContactUs from './pages/ContactUs';
 import FAQ from './pages/FAQ';
 import Login from './pages/Login';
 import Rehoming from './pages/Rehoming';
+import Signup from './pages/Signup'
 
 
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
   },
   {
     path: "/rehome",
