@@ -23,6 +23,10 @@ const columns = {
   justifyContent: "center",
   background: "#F9F4F1",
 };
+const profileContainer = {
+  display: "flex",
+  flexDirection: "column",
+};
 const Spacer = ({ y, x }) => {
   return <div style={{ height: y, width: x }}></div>;
 };
@@ -37,7 +41,9 @@ function Profile() {
 
         <div style={columns}>
           <User />
-          <LikeCats />
+          <div style={profileContainer}>
+            <LikeCats />
+          </div>
         </div>
       </div>
       <Footer />

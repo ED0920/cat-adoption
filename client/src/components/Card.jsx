@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 
 const body = {
   display: "grid",
@@ -50,11 +51,9 @@ const CatCard = ({ name, location, age, dob, breed, imgUrl }) => {
           <Spacer />
           <div>{age}</div>
           <Spacer />
-          <div>{dob}</div>
-          <Spacer />
           <div>{breed}</div>
           <div style={icon}>
-            <FontAwesomeIcon icon={faHeart} />
+            <FontAwesomeIcon icon={faHeartRegular} />
           </div>
         </div>
       </div>{" "}
@@ -93,7 +92,12 @@ const CatCardContainer = () => {
       <div style={body}>
         {dbData.map((cat) => {
           return (
-            <CatCard name={cat.name} location={cat.location} imgUrl={cat.url} />
+            <CatCard
+              name={cat.name}
+              location={cat.location}
+              breed={cat.breed}
+              imgUrl={cat.url}
+            />
           );
         })}
       </div>

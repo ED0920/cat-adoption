@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
+
+const Spacer = ({ y = 10, x = 0 }) => {
+  return <div style={{ height: y, width: x }}></div>;
+};
 const body = {
   display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr",
+  gridTemplateRows: "1fr ",
+  rowGap: 15,
   justifyContent: "center",
   background: "#F9F4F1",
 };
@@ -71,6 +76,8 @@ const LikedCat = ({
           <div>
             <b>Personality:</b> {personality}{" "}
           </div>
+          <Spacer />
+          <button>Contact Us</button>
         </div>
       </div>{" "}
     </div>
@@ -92,6 +99,16 @@ const LikeCatContainer = () => {
         breed: "Short hair",
         colour: "Solid",
         personality: "Active",
+      },
+      {
+        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
+        name: "Frankie",
+        state: "QLD",
+        age: "18 months",
+        sex: "Male",
+        breed: "Short hair Tabby",
+        colour: "Solid",
+        personality: "",
       },
     ]);
   }, []);
