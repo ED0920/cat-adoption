@@ -27,7 +27,7 @@ db.once('open', async () => {
       
         // Add cat[i] to user[i]
         const user = await User.findOneAndUpdate(
-          { username: users[i].username },
+          { email: users[i].email },
           {
             $addToSet: {
               cats: cats[i]._id,
