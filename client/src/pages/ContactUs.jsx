@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 
 const body = {
   minHeight: "65vh",
-  background: "#6461A0",
+  background: "#F9F4F1",
   color: "#444c54",
 };
 
