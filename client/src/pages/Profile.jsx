@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import User from "../components/User";
-import Card, { CatCard } from "../components/Card";
+import Card, { CatCard } from "../components/CatCard";
 import LikeCats from "../components/Likecats";
 
 const body = {

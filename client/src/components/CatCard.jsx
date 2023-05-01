@@ -49,8 +49,7 @@ const CatCard = ({ name, location, age, dob, breed, imgUrl }) => {
           <Spacer />
           <div>{location}</div>
           <Spacer />
-          <div>{age}</div>
-          <Spacer />
+
           <div>{breed}</div>
           <div style={icon}>
             <FontAwesomeIcon icon={faHeartRegular} />
@@ -71,18 +70,19 @@ const CatCardContainer = () => {
         url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
         name: "Jason",
         location: "NSW",
-        dob: "1 year",
         breed: "Short Hair Tabby",
       },
       {
         url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
         name: "Jason",
         location: "QLD",
+        breed: "Tabby",
       },
       {
         url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
         name: "Jackson",
         location: "NT",
+        breed: "Domestic",
       },
     ]);
   }, []);
