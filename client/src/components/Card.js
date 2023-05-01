@@ -29,6 +29,7 @@ const details = {
 
 const CatCard = ({ name, location, age, dob, breed, imgUrl }) => {
     return (
+
         <div style={cardContainer}>
             <img style={image} src={imgUrl} alt="cat img" />
             <div style={details}>
@@ -39,6 +40,7 @@ const CatCard = ({ name, location, age, dob, breed, imgUrl }) => {
                 <div>{breed}</div>
             </div>
         </div>
+
 
     )
 }
