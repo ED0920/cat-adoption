@@ -8,8 +8,7 @@ import { QUERY_AVAILABLE_CATS } from '../utils/queries';
 
 const body = {
   minHeight: "65vh",
-  background: "#6461A0",
-  color: "#444c54",
+  backgroundColor: "#F9F4F1",
 };
 function Cats() {
   const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);

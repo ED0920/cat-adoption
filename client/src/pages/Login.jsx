@@ -5,7 +5,6 @@ import Loginpg from "../components/Login";
 
 const body = {
   minHeight: "65vh",
-  background: "#6461A0",
   color: "#444c54",
 };
 
