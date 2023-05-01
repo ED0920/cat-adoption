@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card from "../components/Card";
+import CatCardContainer from "../components/Card";
 
 const body = {
   minHeight: "65vh",
@@ -11,9 +11,8 @@ function Cats() {
   return (
     <>
       <Header />
-      <div style={body}>
-        <Card />
-      </div>
+      <CatCardContainer />
+
       <Footer />
     </>
   );

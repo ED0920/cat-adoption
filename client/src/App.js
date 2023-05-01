@@ -8,7 +8,7 @@ import FAQ from './pages/FAQ';
 import Login from './pages/Login';
 import Rehoming from './pages/Rehoming';
 import Signup from './pages/Signup'
-
+import Profile from './pages/Profile';
 
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -42,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/rehome",
     element: <Rehoming />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 
