@@ -1,4 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations';
+
+import Auth from '../utils/auth';
 
 const body = {
     margin: "2%"
@@ -46,16 +50,31 @@ const Details = ({ info, type, name, values, onChange }) => {
 
 function SignUp() {
     const [inputs, setInputs] = useState({});
+    const [addUser, { error, data }] = useMutation(ADD_USER);
 
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
+
+        console.log(name + ' ' + value);
+
         setInputs(values => ({ ...values, [name]: value }))
 
     }
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         console.log(inputs);
+
+        try {
+            const { data } = await addUser({
+              variables: { ...inputs },
+            });
+      
+            Auth.login(data.addUser.token);
+          } catch (e) {
+            console.error(e);
+        }
+
     }
 
 
@@ -81,6 +100,7 @@ function SignUp() {
                 <Details
                     info={"Phone Number:"}
                     type={"integer"}
+                    name={"phonenumber"}
                     values={inputs}
                     onChange={handleChange}
 
