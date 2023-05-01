@@ -60,14 +60,24 @@ function SignUp() {
 
         setInputs(values => ({ ...values, [name]: value }))
 
-    }
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(inputs);
+        
+        const newUser = {
+            "firstname": inputs.firstname,
+            "lastname": inputs.lastname,
+            "email": inputs.email,
+            "phonenumber": inputs.phonenumber,
+            "password": inputs.password
+        }
+
+        console.log(newUser);
 
         try {
             const { data } = await addUser({
-              variables: { ...inputs },
+              variables: newUser,
             });
       
             Auth.login(data.addUser.token);
@@ -75,7 +85,7 @@ function SignUp() {
             console.error(e);
         }
 
-    }
+    };
 
 
     return (
@@ -122,7 +132,7 @@ function SignUp() {
                 <Details
                     info={"Re-enter Password:"}
                     type={"password"}
-                    name={"re-enterpassword"}
+                    name={"re_enterpassword"}
                     values={inputs}
                     onChange={handleChange}
                 />
