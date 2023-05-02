@@ -1,4 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
+
+import Auth from "../utils/auth";
 
 const NavBar = {
   display: "flex",
@@ -25,6 +28,11 @@ const navStyle = {
 };
 
 const Header = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+
   return (
     <div className="Nav" style={NavBar}>
       <img style={icon} src={require("../assets/another.png")} alt="logo" />
@@ -43,12 +51,22 @@ const Header = () => {
         <Link to={"/profile"} style={navStyle}>
           Profile
         </Link>
-        <Link to={"/login"} style={navStyle}>
-          Login
-        </Link>
-        <Link to={"/signup"} style={navStyle}>
-          Sign Up
-        </Link>
+        {Auth.loggedIn() ? (
+          <>
+            <a style={navStyle} onClick={logout} href="#">
+              Logout
+            </a>
+          </>
+        ) : (
+          <>
+            <Link to={"/login"} style={navStyle}>
+              Login
+            </Link>
+            <Link to={"/signup"} style={navStyle}>
+              Sign Up
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

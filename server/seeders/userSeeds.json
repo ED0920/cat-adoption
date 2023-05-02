@@ -1,32 +1,44 @@
 [
   {
-    "username": "Elisa Do",
+    "firstname": "Elisa",
+    "lastname": "Do",
     "email": "elisa@example.com",
+    "phonenumber": "0419000001",
     "password": "password123"
   },
   {
-    "username": "Jisha bhat",
+    "firstname": "Jisha",
+    "lastname": "Bhat",
     "email": "jisha@example.com",
+    "phonenumber": "0419000002",
     "password": "password123"
   },
   {
-    "username": "Georgia Davenport",
+    "firstname": "Georgia",
+    "lastname": "Davenport",
     "email": "georgia@example.com",
+    "phonenumber": "0419000003",
     "password": "password123"
   },
   {
-    "username": "Lillian Nolan",
+    "firstname": "Lillian",
+    "lastname": "Nolan",
     "email": "lillian@example.com",
+    "phonenumber": "0419000004",
     "password": "password123"
   },
   {
-    "username": "Roger Flynn",
+    "firstname": "Roger",
+    "lastname": "Flynn",
     "email": "roger@example.com",
+    "phonenumber": "0419000005",
     "password": "password123"
   },
   {
-    "username": "Tyler Shaw",
+    "firstname": "Tyler",
+    "lastname": "Shaw",
     "email": "tyler@example.com",
+    "phonenumber": "0419000006",
     "password": "password123"
   }
 ]
