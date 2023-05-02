@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card from "../components/Card";
+import CatCardContainer from "../components/CatCard";
 
 import { useQuery } from '@apollo/client';
 import { QUERY_AVAILABLE_CATS } from '../utils/queries';
@@ -20,9 +20,8 @@ function Cats() {
   return (
     <>
       <Header />
-      <div style={body}>
-        <Card />
-      </div>
+      <CatCardContainer />
+
       <Footer />
     </>
   );

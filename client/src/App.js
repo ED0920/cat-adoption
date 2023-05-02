@@ -16,7 +16,7 @@ import FAQ from './pages/FAQ';
 import Login from './pages/Login';
 import Rehoming from './pages/Rehoming';
 import Signup from './pages/Signup'
-
+import Profile from './pages/Profile';
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -69,6 +69,10 @@ const router = createBrowserRouter([
   {
     path: "/rehome",
     element: <Rehoming />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 
