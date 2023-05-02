@@ -102,7 +102,8 @@ function SignUp() {
         />
         <Details
           info={"Phone Number:"}
-          type={"integer"}
+          type={"tel"}
+          name={"phonenumber"}
           values={inputs}
           onChange={handleChange}
         />
