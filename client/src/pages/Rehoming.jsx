@@ -28,6 +28,8 @@ function Rehoming() {
         <br></br>
         <div>How to adopt:</div>
         <ol>
+          <li>Create an account</li>
+          <Spacer y={20} />
           <li>Submit an enquiry</li>
           <Spacer y={20} />
           <li>

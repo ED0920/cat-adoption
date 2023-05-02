@@ -2,9 +2,10 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CatCardContainer from "../components/CatCard";
+import CatProfile from "../components/CatProfile";
 
-import { useQuery } from '@apollo/client';
-import { QUERY_AVAILABLE_CATS } from '../utils/queries';
+import { useQuery } from "@apollo/client";
+import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
 const body = {
   minHeight: "65vh",
@@ -20,8 +21,8 @@ function Cats() {
   return (
     <>
       <Header />
-      <CatCardContainer />
-
+      {/* <CatCardContainer /> */}
+      <CatProfile />
       <Footer />
     </>
   );
