@@ -102,7 +102,8 @@ function SignUp() {
         />
         <Details
           info={"Phone Number:"}
-          type={"integer"}
+          type={"tel"}
+          name={"phonenumber"}
           values={inputs}
           onChange={handleChange}
         />
@@ -115,14 +116,14 @@ function SignUp() {
         />
         <Details
           info={"Password:"}
-          type={"text"}
+          type={"password"}
           name={"password"}
           values={inputs}
           onChange={handleChange}
         />
         <Details
           info={"Re-enter Password:"}
-          type={"text"}
+          type={"password"}
           name={"re-enterpassword"}
           values={inputs}
           onChange={handleChange}

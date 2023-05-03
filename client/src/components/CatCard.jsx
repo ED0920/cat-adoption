@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 
-import { useQuery } from '@apollo/client';
-import { QUERY_AVAILABLE_CATS } from '../utils/queries';
+import { useQuery } from "@apollo/client";
+import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
 const body = {
   display: "grid",
@@ -52,17 +52,11 @@ const CatCard = ({ name, location, age, breed, imgUrl }) => {
             <b>{name}</b>
           </div>
           <Spacer />
-          <div>
-            {age}
-          </div>
+          <div>{age}</div>
           <Spacer />
-          <div>
-            {location}
-          </div>
+          <div>{location}</div>
           <Spacer />
-          <div>
-            {breed}
-          </div>
+          <div>{breed}</div>
           <div style={icon}>
             <FontAwesomeIcon icon={faHeartRegular} />
           </div>
