@@ -67,18 +67,21 @@ const CatCardContainer = () => {
     // API CALL HERE
     setDbData([
       {
+        id: "12",
         url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
         name: "Jason",
         location: "NSW",
         breed: "Short Hair Tabby",
       },
       {
+        id: "132",
         url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
         name: "Jason",
         location: "QLD",
         breed: "Tabby",
       },
       {
+        id: "124",
         url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
         name: "Jackson",
         location: "NT",
