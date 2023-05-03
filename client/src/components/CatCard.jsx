@@ -1,4 +1,5 @@
 import React from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
@@ -54,9 +55,10 @@ const CatCard = ({ name, location, age, breed, imgUrl }) => {
           <Spacer />
           <div>{age}</div>
           <Spacer />
-          <div>{age}</div>
-          <Spacer />
-          <div>{location}</div>
+
+          <div>
+            {location}
+          </div>
           <Spacer />
           <div>{breed}</div>
           <div style={icon}>
@@ -71,17 +73,23 @@ const CatCard = ({ name, location, age, breed, imgUrl }) => {
 const CatCardContainer = () => {
   const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
   const cats = data?.availableCats || [];
+  const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
+  const cats = data?.availableCats || [];
 
   return (
     <div>
       <div style={body}>
+        {cats.map((cat) => {
         {cats.map((cat) => {
           return (
             <CatCard
               name={cat.name}
               location={cat.state}
               age={cat.age}
+              location={cat.state}
+              age={cat.age}
               breed={cat.breed}
+              imgUrl={cat.imgFilename}
               imgUrl={cat.imgFilename}
             />
           );
