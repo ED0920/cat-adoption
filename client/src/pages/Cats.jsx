@@ -12,12 +12,6 @@ const body = {
   backgroundColor: "#F9F4F1",
 };
 function Cats() {
-  const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
-  const cats = data?.availableCats || [];
-
-  console.log(cats);
-  console.log(loading);
-
   return (
     <>
       <Header />

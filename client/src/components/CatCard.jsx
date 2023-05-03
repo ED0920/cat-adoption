@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
+
+import { useQuery } from "@apollo/client";
+import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
 const body = {
   display: "grid",
@@ -20,6 +23,8 @@ const cardContainer = {
 };
 const image = {
   width: "100%",
+  height: "40vh",
+  objectFit: "fill",
   borderRadius: "10px",
 };
 const details = {
@@ -37,19 +42,22 @@ const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;
 };
 
-const CatCard = ({ name, location, age, dob, breed, imgUrl }) => {
+const CatCard = ({ name, location, age, breed, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
-        <img style={image} src={imgUrl} alt="cat img" />
+        <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
         <div style={details}>
           <div>
             <b>{name}</b>
           </div>
           <Spacer />
+          <div>{age}</div>
+          <Spacer />
+          <div>{age}</div>
+          <Spacer />
           <div>{location}</div>
           <Spacer />
-
           <div>{breed}</div>
           <div style={icon}>
             <FontAwesomeIcon icon={faHeartRegular} />
@@ -61,45 +69,20 @@ const CatCard = ({ name, location, age, dob, breed, imgUrl }) => {
 };
 
 const CatCardContainer = () => {
-  const [dbData, setDbData] = useState([]);
-
-  useEffect(() => {
-    // API CALL HERE
-    setDbData([
-      {
-        id: "12",
-        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
-        name: "Jason",
-        location: "NSW",
-        breed: "Short Hair Tabby",
-      },
-      {
-        id: "132",
-        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
-        name: "Jason",
-        location: "QLD",
-        breed: "Tabby",
-      },
-      {
-        id: "124",
-        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
-        name: "Jackson",
-        location: "NT",
-        breed: "Domestic",
-      },
-    ]);
-  }, []);
+  const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
+  const cats = data?.availableCats || [];
 
   return (
     <div>
       <div style={body}>
-        {dbData.map((cat) => {
+        {cats.map((cat) => {
           return (
             <CatCard
               name={cat.name}
-              location={cat.location}
+              location={cat.state}
+              age={cat.age}
               breed={cat.breed}
-              imgUrl={cat.url}
+              imgUrl={cat.imgFilename}
             />
           );
         })}
