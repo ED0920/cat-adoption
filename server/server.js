@@ -2,7 +2,6 @@ const express = require('express');
 const { ApolloServer } = require('apollo-server-express');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
-const { MongoClient } = require('mongodb');
 
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -14,18 +13,6 @@ const server = new ApolloServer({
   resolvers,
   context: authMiddleware,
 });
-
-//Connection string to locat instance of MongoDb
-const connectionStringURI = `mongodb://127.0.0.1:27017`
-
-//Initialize a new instance of MongoClient
-const client = new MongoClient(connectionStringURI)
-
-//Declare a variable to hold the connectoin
-let db;
-
-//Care variable to hold the connection
-const dbName = 'cat-adoption';
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -43,19 +30,14 @@ app.get('/', (req, res) => {
 const startApolloServer = async () => {
   await server.start();
   server.applyMiddleware({ app });
-
+  
   db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running on port ${PORT}!`);
       console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
     })
-  });
-
-  client.connect()
-    .then(() => {
-
-    })
-};
-
+  })
+  };
+  
 // Call the async function to start the server
 startApolloServer();
