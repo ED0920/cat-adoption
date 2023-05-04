@@ -107,7 +107,7 @@ function Login() {
           Login
         </button>
         <div style={member}>
-          Not a member? <Link to={"/signup"}>Sign Up</Link>
+          Don't have an Account? <Link to={"/signup"}>Sign Up</Link>
         </div>
       </form>
     </div>
