@@ -6,6 +6,8 @@ import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { useQuery } from "@apollo/client";
 import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
+import Dropdown from "react-bootstrap/Dropdown";
+
 const body = {
   display: "grid",
   gridTemplateColumns: "1fr 1fr 1fr",
@@ -38,6 +40,22 @@ const icon = {
   float: "right",
   color: "#C89B7B",
 };
+
+const filterBody = {
+  display: "flex",
+  justifyContent: "center",
+  margin: "25px",
+};
+
+const dropdownStyle = {
+  background: "#C89B7B",
+  border: "#C89B7B",
+  marginLeft: "20px",
+};
+const filterComponent = {
+  display: "flex",
+  margin: "15px",
+};
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;
 };
@@ -66,12 +84,64 @@ const CatCard = ({ name, location, age, breed, imgUrl }) => {
   );
 };
 
+function StateDropdown() {
+  return (
+    <Dropdown>
+      <Dropdown.Toggle
+        style={dropdownStyle}
+        variant="success"
+        id="dropdown-basic"
+      >
+        Select State
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">NSW</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">ACT</Dropdown.Item>
+        <Dropdown.Item href="#/action-3">QLD</Dropdown.Item>
+        <Dropdown.Item href="#/action-4">NT</Dropdown.Item>
+        <Dropdown.Item href="#/action-5">SA</Dropdown.Item>
+        <Dropdown.Item href="#/action-6">WA</Dropdown.Item>
+        <Dropdown.Item href="#/action-7">TAS</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+function BreedDropdown() {
+  return (
+    <Dropdown>
+      <Dropdown.Toggle
+        style={dropdownStyle}
+        variant="success"
+        id="dropdown-basic"
+      >
+        Select Sex
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Item href="#/action-1">Female</Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Male</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}
+
 const CatCardContainer = () => {
   const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
   const cats = data?.availableCats || [];
 
   return (
     <div>
+      <div style={filterBody}>
+        <div style={filterComponent}>
+          <h3>State:</h3>
+          <StateDropdown />
+        </div>
+        <div style={filterComponent}>
+          <h3>Sex:</h3>
+          <BreedDropdown />
+        </div>
+      </div>
       <div style={body}>
         {cats.map((cat) => {
           return (

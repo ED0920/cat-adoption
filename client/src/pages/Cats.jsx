@@ -15,8 +15,8 @@ function Cats() {
   return (
     <>
       <Header />
-      {/* <CatCardContainer /> */}
-      <CatProfile />
+      <CatCardContainer />
+      {/* <CatProfile /> */}
       <Footer />
     </>
   );
