@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
+import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 const body = {
@@ -15,7 +16,7 @@ const formStyle = {
   lineHeight: "50px",
   borderRadius: "5px",
 };
-const Button = {
+const button = {
   height: "30px",
   background: "#C89B7B",
   border: "0px",
@@ -23,6 +24,9 @@ const Button = {
   width: "100%",
 };
 
+const member = {
+  textAlign: "center",
+};
 const Details = ({ info, type, name, values, onChange }) => {
   return (
     <div>
@@ -128,9 +132,12 @@ function SignUp() {
           onChange={handleChange}
         />
 
-        <button style={Button} type="submit">
+        <button style={button} type="submit">
           Create an account
         </button>
+        <div style={member}>
+          Already have an account? <Link to={"/login"}>Login</Link>
+        </div>
       </form>
     </div>
   );

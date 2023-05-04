@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }}></div>;
+};
+
+const icon = {
+  float: "right",
+  color: "#C89B7B",
 };
 const body = {
   display: "grid",
@@ -50,6 +60,7 @@ const LikedCat = ({
     <div>
       <div style={cardContainer}>
         <img style={image} src={imgUrl} alt="cat img" />
+
         <div style={details}>
           <div>
             {" "}
@@ -77,7 +88,14 @@ const LikedCat = ({
             <b>Personality:</b> {personality}{" "}
           </div>
           <Spacer />
-          <button>Contact Us</button>
+          <div>
+            <button>
+              <Link to={"/contact"}>Contact Us</Link>
+            </button>
+            <div style={icon}>
+              <FontAwesomeIcon icon={faHeartRegular} />
+            </div>
+          </div>
         </div>
       </div>{" "}
     </div>
