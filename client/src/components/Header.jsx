@@ -48,11 +48,11 @@ const Header = () => {
         <Link to={"/rehome"} style={navStyle}>
           Rehoming Services
         </Link>
-        <Link to={"/profile"} style={navStyle}>
-          Profile
-        </Link>
         {Auth.loggedIn() ? (
           <>
+            <Link to={"/profile"} style={navStyle}>
+              Profile
+            </Link>
             <a style={navStyle} onClick={logout} href="#">
               Logout
             </a>
