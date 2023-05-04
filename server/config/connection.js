@@ -1,3 +1,4 @@
+// Updated to use Heroku DB or local DB if it cannot be found
 const mongoose = require('mongoose');
 require('dotenv').config();
 
