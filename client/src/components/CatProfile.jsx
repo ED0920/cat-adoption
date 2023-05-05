@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import { useQuery } from "@apollo/client";
+import { QUERY_GET_CAT } from "../utils/queries";
+
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }}></div>;
 };
@@ -54,7 +57,7 @@ const Cat = ({
   return (
     <div>
       <div style={cardContainer}>
-        <img style={image} src={imgUrl} alt="cat img" />
+        <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
         <div style={details}>
           <div>
             {" "}
@@ -108,39 +111,32 @@ const CatProfile = () => {
   const { id } = useParams();
   console.log(id);
 
-  useEffect(() => {
-    // API CALL HERE
-    setDbData([
-      {
-        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
-        name: "Karen",
-        state: "NSW",
-        age: "6 months",
-        sex: "Male",
-        breed: "Short hair",
-        colour: "Solid",
-        personality: "Active",
-        bio: "My name is Karen and I love to play with my string toys. I like lots of pats, cuddle and napping on beds",
-      },
-    ]);
-  }, []);
+    
+  const { loading, data } = useQuery(QUERY_GET_CAT, {
+    variables: { catId: id },
+  });
+  const cat = data?.cat || {};
+  console.log(cat);
+  console.log(loading);
+  
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <div style={body}>
-        {dbData.map((cat) => {
-          return (
-            <Cat
-              name={cat.name}
-              state={cat.state}
-              age={cat.age}
-              sex={cat.sex}
-              breed={cat.breed}
-              colour={cat.colour}
-              personality={cat.personality}
-              bio={cat.bio}
-            />
-          );
-        })}
+        <Cat
+            name={cat.name}
+            state={cat.state}
+            age={cat.age}
+            sex={cat.sex}
+            breed={cat.breed}
+            colour={cat.colour}
+            personality={cat.personality}
+            bio={cat.bioText}
+            imgUrl={cat.imgFilename}
+        />
       </div>
     </div>
   );

@@ -12,6 +12,9 @@ const resolvers = {
     allCats: async () => {
       return Cat.find({})
     },
+    cat: async (parent, { catId }) => {
+      return Cat.findOne({_id: catId})
+    },
     availableCats: async () => {
       return Cat.find({ adopted: false })
     },
