@@ -17,7 +17,6 @@ const formStyle = {
   borderRadius: "5px",
 };
 const button = {
-  height: "30px",
   background: "#C89B7B",
   border: "0px",
   borderRadius: "3px",
@@ -29,16 +28,15 @@ const member = {
 };
 const Details = ({ info, type, name, values, onChange }) => {
   return (
-    <div>
-      <label>
+    <div style={{ width: "100%" }}>
+      <label style={{ width: "inherit" }}>
         {" "}
         {info}
         <input
           style={{
             width: "100%",
             height: "30px",
-            display: "flex",
-            boxSizing: "border-box",
+            // boxSizing: "border-box",
           }}
           type={type}
           name={name}
