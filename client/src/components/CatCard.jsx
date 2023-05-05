@@ -60,11 +60,13 @@ const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;
 };
 
-const CatCard = ({ name, location, age, breed, imgUrl }) => {
+const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
-        <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
+        <a href={`cats/${id}`}> 
+          <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
+        </a>
         <div style={details}>
           <div>
             <b>{name}</b>
@@ -130,6 +132,8 @@ const CatCardContainer = () => {
   const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
   const cats = data?.availableCats || [];
 
+  console.log(cats);
+
   return (
     <div>
       <div style={filterBody}>
@@ -146,6 +150,7 @@ const CatCardContainer = () => {
         {cats.map((cat) => {
           return (
             <CatCard
+              id={cat._id}
               name={cat.name}
               location={cat.state}
               age={cat.age}

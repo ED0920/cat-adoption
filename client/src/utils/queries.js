@@ -16,3 +16,21 @@ export const QUERY_AVAILABLE_CATS = gql`
     } 
   }
 `;
+
+export const QUERY_GET_CAT = gql`
+  query Cat($catId: ID!) {
+    cat(catId: $catId) {
+      _id
+      adopted
+      age
+      bioText
+      breed
+      colour
+      imgFilename
+      name
+      personality
+      sex
+      state
+    }
+  }
+`;
