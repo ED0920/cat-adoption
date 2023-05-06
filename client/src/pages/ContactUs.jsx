@@ -8,6 +8,12 @@ const body = {
   color: "#444c54",
   padding: "100px",
 };
+const button = {
+  background: "#C89B7B",
+  border: "0px",
+  borderRadius: "3px",
+  width: "10%",
+};
 const Spacer = ({ y = 20, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;
 };
@@ -18,8 +24,8 @@ function ContactUs() {
       <Header />
       <div style={body}>
         <h1>Contact Us</h1>
-        <div>
-          <label>
+        <div style={{ width: "100%" }}>
+          <label style={{ width: "100%" }}>
             Title:
             <Spacer />
             <input
@@ -34,8 +40,8 @@ function ContactUs() {
           </label>
         </div>
         <Spacer />
-        <div>
-          <label>
+        <div style={{ width: "100%" }}>
+          <label style={{ width: "100%" }}>
             Message:
             <Spacer />
             <input
@@ -49,7 +55,10 @@ function ContactUs() {
             />
           </label>
           <Spacer />
-          <button type="submit"> Submit</button>
+          <button style={button} type="submit">
+            {" "}
+            Submit
+          </button>
         </div>
       </div>
       <Footer />
