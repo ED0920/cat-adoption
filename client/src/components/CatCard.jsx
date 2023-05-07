@@ -91,10 +91,10 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{breed}</div>
           <div><Button><Link to={"/login"}>
               <b style={link}>Adopt Me</b>
-            </Link></Button></div>
+            </Link></Button>
           </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };
