@@ -17,6 +17,7 @@ const body = {
   minHeight: "80vh",
 };
 const cardContainer = {
+  margin: "50px",
   display: "flex",
   padding: "10px",
   boxSizing: "border-box",
@@ -97,7 +98,7 @@ const Cat = ({
           <Spacer y={100} />
           <div>
             <Link to={"/login"}>
-              <b style={link}>Login to enquire now</b>
+              <b style={link}>Adopt me now</b>
             </Link>
           </div>
         </div>
@@ -111,14 +112,13 @@ const CatProfile = () => {
   const { id } = useParams();
   console.log(id);
 
-    
   const { loading, data } = useQuery(QUERY_GET_CAT, {
     variables: { catId: id },
   });
   const cat = data?.cat || {};
   console.log(cat);
   console.log(loading);
-  
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -127,15 +127,15 @@ const CatProfile = () => {
     <div>
       <div style={body}>
         <Cat
-            name={cat.name}
-            state={cat.state}
-            age={cat.age}
-            sex={cat.sex}
-            breed={cat.breed}
-            colour={cat.colour}
-            personality={cat.personality}
-            bio={cat.bioText}
-            imgUrl={cat.imgFilename}
+          name={cat.name}
+          state={cat.state}
+          age={cat.age}
+          sex={cat.sex}
+          breed={cat.breed}
+          colour={cat.colour}
+          personality={cat.personality}
+          bio={cat.bioText}
+          imgUrl={cat.imgFilename}
         />
       </div>
     </div>
