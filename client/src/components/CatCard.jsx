@@ -52,6 +52,16 @@ const dropdownStyle = {
   border: "#C89B7B",
   marginLeft: "20px",
 };
+
+const search = {
+  background: "#444b54",
+  border: " solid 3px #444b54",
+  borderRadius: "5px ",
+  width: "125px",
+  height: "35px",
+  margin: "15px",
+  color: "white",
+};
 const filterComponent = {
   display: "flex",
   margin: "15px",
@@ -64,8 +74,12 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
-        <a href={`cats/${id}`}> 
-          <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
+        <a href={`cats/${id}`}>
+          <img
+            style={image}
+            src={require(`../assets/${imgUrl}`)}
+            alt="cat img"
+          />
         </a>
         <div style={details}>
           <div>
@@ -77,8 +91,9 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
-          <div style={icon}>
-            <FontAwesomeIcon icon={faHeartRegular} />
+          <div><Button><Link to={"/login"}>
+              <b style={link}>Adopt Me</b>
+            </Link></Button></div>
           </div>
         </div>
       </div>{" "}
@@ -145,6 +160,7 @@ const CatCardContainer = () => {
           <h3>Sex:</h3>
           <BreedDropdown />
         </div>
+        <button style={search}> Search</button>
       </div>
       <div style={body}>
         {cats.map((cat) => {
