@@ -33,6 +33,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    user(userId: ID!): User
     allCats: [Cat]
     cat(catId: ID!): Cat
     availableCats(state: [String]!, sex: [String]!): [Cat]

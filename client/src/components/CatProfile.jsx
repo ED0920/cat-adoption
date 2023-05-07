@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import { QUERY_GET_CAT } from "../utils/queries";
+import { ADOPT_A_CAT } from "../utils/mutations";
+
+import Auth from "../utils/auth";
 
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }}></div>;
@@ -64,6 +67,29 @@ const Cat = ({
   bio,
   imgUrl,
 }) => {
+
+  const [adopt, { error, data }] = useMutation(ADOPT_A_CAT);
+  const { id } = useParams();
+  const userId = Auth.getUserId();
+
+  const handleAdoption = async (event) => {
+    event.preventDefault();
+    
+    console.log("userId: " + userId);
+    console.log("catId: " + id);
+
+    try {
+      const { data } = await adopt({
+        variables: {userId: userId, catId: id},
+      });
+    } catch(e) {
+      console.error(e);
+    }
+
+    window.location.assign('/profile');
+
+  };
+
   return (
     <div>
       <div style={cardContainer}>
@@ -105,13 +131,25 @@ const Cat = ({
             <b>Bio: </b> {bio}{" "}
           </div>
           <Spacer y={100} />
-          <div>
-            <button style={adoptMe}>
-              <Link to={"/login"}>
-                <b style={link}>Adopt me now</b>
-              </Link>
-            </button>
-          </div>
+          {Auth.loggedIn() ? (
+            <>
+              <div>
+                <button onClick={handleAdoption} style={adoptMe}>
+                  <b style={link}>Adopt me now</b>
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div>
+                <button style={adoptMe}>
+                  <Link to={"/login"}>
+                    <b style={link}>Login to adopt me</b>
+                  </Link>
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>{" "}
     </div>
@@ -121,14 +159,11 @@ const Cat = ({
 const CatProfile = () => {
   const [dbData, setDbData] = useState([]);
   const { id } = useParams();
-  console.log(id);
 
   const { loading, data } = useQuery(QUERY_GET_CAT, {
     variables: { catId: id },
   });
   const cat = data?.cat || {};
-  console.log(cat);
-  console.log(loading);
 
   if (loading) {
     return <div>Loading...</div>;

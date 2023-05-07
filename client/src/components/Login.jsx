@@ -74,7 +74,7 @@ function Login() {
         variables: { ...inputs },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.login.token, data.login.user._id);
     } catch (e) {
       console.error(e);
     }

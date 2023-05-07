@@ -49,7 +49,7 @@ const LikedCat = ({
   return (
     <div>
       <div style={cardContainer}>
-        <img style={image} src={imgUrl} alt="cat img" />
+        <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
 
         <div style={details}>
           <div>
@@ -77,40 +77,21 @@ const LikedCat = ({
           <div>
             <b>Personality:</b> {personality}{" "}
           </div>
-          <Spacer />
           <div>
             <b>Status:</b> {status}{" "}
           </div>
-          <Spacer />
         </div>
       </div>{" "}
     </div>
   );
 };
 
-const LikeCatContainer = () => {
-  const [dbData, setDbData] = useState([]);
-
-  useEffect(() => {
-    // API CALL HERE
-    setDbData([
-      {
-        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
-        name: "Karen",
-        state: "NSW",
-        age: "6 months",
-        sex: "Male",
-        breed: "Short hair",
-        colour: "Solid",
-        personality: "Active",
-        status: "Adopted",
-      },
-    ]);
-  }, []);
+const LikeCatContainer = ({cats}) => {
+  
   return (
     <div>
       <div style={body}>
-        {dbData.map((cat) => {
+        {cats.map((cat) => {
           return (
             <LikedCat
               name={cat.name}
@@ -120,6 +101,8 @@ const LikeCatContainer = () => {
               breed={cat.breed}
               colour={cat.colour}
               personality={cat.personality}
+              imgUrl={cat.imgFilename}
+              status={"Adopted"}
             />
           );
         })}

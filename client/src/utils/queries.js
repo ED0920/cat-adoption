@@ -36,3 +36,28 @@ export const QUERY_GET_CAT = gql`
     }
   }
 `;
+
+export const QUERY_GET_USER = gql`
+  query User($userId: ID!) {
+    user(userId: $userId) {
+      firstname
+      lastname
+      email
+      phonenumber
+      password
+      cats {
+        adopted
+        age
+        bioText
+        breed
+        colour
+        createdAt
+        imgFilename
+        name
+        personality
+        sex
+        state
+      }
+    }
+  }
+`

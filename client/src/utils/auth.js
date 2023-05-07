@@ -17,6 +17,7 @@ class AuthService {
     // If the expiration time is less than the current time (in seconds), the token is expired and we return `true`
     if (decoded.exp < Date.now() / 1000) {
       localStorage.removeItem('id_token');
+      localStorage.removeItem('id_user');
       return true;
     }
     // If token hasn't passed its expiration time, return `false`
@@ -27,13 +28,19 @@ class AuthService {
     return localStorage.getItem('id_token');
   }
 
-  login(idToken) {
+  getUserId() {
+    return localStorage.getItem('id_user');
+  }
+
+  login(idToken, userId) {
     localStorage.setItem('id_token', idToken);
+    localStorage.setItem('id_user', userId);
     window.location.assign('/');
   }
 
   logout() {
     localStorage.removeItem('id_token');
+    localStorage.removeItem('id_user');
     window.location.assign('/');
   }
 }
