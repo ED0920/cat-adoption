@@ -1,20 +1,10 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
-
 
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }}></div>;
 };
 
-const icon = {
-  float: "right",
-  color: "#C89B7B",
-};
 const body = {
   display: "grid",
   gridTemplateRows: "1fr ",
@@ -53,6 +43,7 @@ const LikedCat = ({
   colour,
   breed,
   personality,
+  status,
   imgUrl,
 }) => {
   return (
@@ -87,16 +78,10 @@ const LikedCat = ({
             <b>Personality:</b> {personality}{" "}
           </div>
           <Spacer />
-
           <div>
-            <button>
-              <Link to={"/contact"}>Contact Us</Link>
-            </button>
-            <div style={icon}>
-              <FontAwesomeIcon icon={faHeartRegular} />
-            </div>
+            <b>Status:</b> {status}{" "}
           </div>
-
+          <Spacer />
         </div>
       </div>{" "}
     </div>
@@ -118,16 +103,7 @@ const LikeCatContainer = () => {
         breed: "Short hair",
         colour: "Solid",
         personality: "Active",
-      },
-      {
-        url: "https://www.adoptapet.com.au/img/animals/013Q4MQH3PWQ2RGYISN5F3ALZCGWJUHBD5.jpg",
-        name: "Frankie",
-        state: "QLD",
-        age: "18 months",
-        sex: "Male",
-        breed: "Short hair Tabby",
-        colour: "Solid",
-        personality: "",
+        status: "Adopted",
       },
     ]);
   }, []);
