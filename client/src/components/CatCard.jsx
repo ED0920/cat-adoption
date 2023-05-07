@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
 import Dropdown from "react-bootstrap/Dropdown";
+import { useState } from "react";
 
 const body = {
   display: "grid",
@@ -31,15 +32,12 @@ const image = {
   borderRadius: "10px",
 };
 const details = {
-  padding: "10px",
+  marginBottom: "10px",
+  padding: "5px",
   justifyContent: "center",
   border: "3px solid #444c54",
   color: "white",
   fontSize: "20px",
-};
-const icon = {
-  float: "right",
-  color: "#C89B7B",
 };
 
 const filterBody = {
@@ -63,6 +61,18 @@ const search = {
   margin: "15px",
   color: "white",
 };
+
+const adoptMe = {
+  background: "#C89B7B",
+  border: " solid 3px #444b54",
+  borderRadius: "7px ",
+  width: "125px",
+  color: "#444b54",
+  float: "right",
+  marginBottom: "20px",
+  fontSize: "15px",
+};
+
 const filterComponent = {
   display: "flex",
   margin: "15px",
@@ -75,24 +85,35 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
-
-        <Link to={`/cats/${id}`}> 
-          <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
+        <Link to={`/cats/${id}`}>
+          <img
+            style={image}
+            src={require(`../assets/${imgUrl}`)}
+            alt="cat img"
+          />
         </Link>
         <div style={details}>
           <div>
             <b>{name}</b>
           </div>
           <Spacer />
-          <div>{age}</div>
+          <div>Age: {age}</div>
           <Spacer />
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
+<<<<<<< HEAD
           <div><button><Link to={"/login"}>
               <b>Adopt Me</b>
             </Link></button>
           </div>
+=======
+          <button style={adoptMe}>
+            <Link style={{ color: "#444b54" }} to={"/login"}>
+              <b>Adopt Me</b>
+            </Link>
+          </button>
+>>>>>>> 25760da170acbe484d1eb7264cd12a4bd55f1e5a
         </div>
       </div>
     </div>
@@ -100,42 +121,53 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
 };
 
 function StateDropdown() {
+  const [state, setState] = useState("");
+
   return (
-    <Dropdown>
+    <Dropdown
+      onSelect={(eventKey, event) => {
+        setState(eventKey);
+      }}
+    >
       <Dropdown.Toggle
         style={dropdownStyle}
         variant="success"
         id="dropdown-basic"
       >
-        Select State
+        {state || "Select State"}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">NSW</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">ACT</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">QLD</Dropdown.Item>
-        <Dropdown.Item href="#/action-4">NT</Dropdown.Item>
-        <Dropdown.Item href="#/action-5">SA</Dropdown.Item>
-        <Dropdown.Item href="#/action-6">WA</Dropdown.Item>
-        <Dropdown.Item href="#/action-7">TAS</Dropdown.Item>
+        <Dropdown.Item eventKey={"NSW"}>NSW</Dropdown.Item>
+        <Dropdown.Item eventKey={"ACT"}>ACT</Dropdown.Item>
+        <Dropdown.Item eventKey={"QLD"}>QLD</Dropdown.Item>
+        <Dropdown.Item eventKey={"NT"}>NT</Dropdown.Item>
+        <Dropdown.Item eventKey={"SA"}>SA</Dropdown.Item>
+        <Dropdown.Item eventKey={"WA"}>WA</Dropdown.Item>
+        <Dropdown.Item eventKey={"TAS"}>TAS</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
 }
 function BreedDropdown() {
+  const [state, setState] = useState("");
   return (
-    <Dropdown>
+    <Dropdown
+      onSelect={(eventKey, event) => {
+        setState(eventKey);
+      }}
+    >
       <Dropdown.Toggle
         style={dropdownStyle}
         variant="success"
         id="dropdown-basic"
       >
-        Select Sex
+        {state || "Select State"}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Female</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Male</Dropdown.Item>
+        <Dropdown.Item eventKey={"Female"}>Female</Dropdown.Item>
+        <Dropdown.Item eventKey={"Male"}>Male</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
