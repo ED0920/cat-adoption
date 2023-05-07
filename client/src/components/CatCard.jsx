@@ -102,7 +102,6 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
-
           <button style={adoptMe}>
             <Link style={{ color: "#444b54" }} to={"/login"}>
               <b>Adopt Me</b>
