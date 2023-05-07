@@ -11,13 +11,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './App.css';
 import AboutUs from './pages/AboutUs';
 import Cats from './pages/Cats';
+import SingleCat from './pages/SingleCat';
 import ContactUs from './pages/ContactUs';
 import FAQ from './pages/FAQ';
 import Login from './pages/Login';
 import Rehoming from './pages/Rehoming';
 import Signup from './pages/Signup'
 import Profile from './pages/Profile';
-import CatProfile from './components/CatProfile';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/cats/:id",
-    element: <CatProfile />,
+    element: <SingleCat />
   },
   {
     path: "/contact",

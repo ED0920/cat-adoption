@@ -1,20 +1,20 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CatCardContainer from "../components/CatCard";
+import CatProfile from "../components/CatProfile";
 
 const body = {
   minHeight: "65vh",
   backgroundColor: "#F9F4F1",
 };
-function Cats() {
+function SingleCat() {
   return (
     <>
       <Header />
-      <CatCardContainer />
+      <CatProfile />
       <Footer />
     </>
   );
 }
 
-export default Cats;
+export default SingleCat;

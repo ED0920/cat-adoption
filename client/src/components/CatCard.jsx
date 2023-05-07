@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
@@ -74,13 +75,10 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
-        <a href={`cats/${id}`}>
-          <img
-            style={image}
-            src={require(`../assets/${imgUrl}`)}
-            alt="cat img"
-          />
-        </a>
+
+        <Link to={`/cats/${id}`}> 
+          <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
+        </Link>
         <div style={details}>
           <div>
             <b>{name}</b>
