@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const body = {
-  minHeight: "55vh",
+  minHeight: "62vh",
   background: "#F9F4F1",
   color: "#444c54",
   padding: "5vh",

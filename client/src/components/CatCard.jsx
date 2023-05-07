@@ -138,7 +138,7 @@ const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;
 };
 
-const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
+const CatCard = ({ id, name, location, age, breed, sex, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
@@ -159,11 +159,8 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
-          <button style={adoptMe}>
-            <Link style={{ color: "#444b54" }} to={"/login"}>
-              <b>Adopt Me</b>
-            </Link>
-          </button>
+          <Spacer />
+          <div>{sex}</div>
         </div>
       </div>
     </div>
@@ -282,6 +279,7 @@ const CatCardContainer = () => {
               location={cat.state}
               age={cat.age}
               breed={cat.breed}
+              sex={cat.sex}
               imgUrl={cat.imgFilename}
             />
           );

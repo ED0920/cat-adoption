@@ -4,15 +4,15 @@ const Spacer = ({ y = 30, x = 0 }) => {
 const UserCard = ({ firstname, lastname, number, email, password }) => {
   return (
     <div>
-      <div>First name: {firstname}</div>
+      <div>First name:&nbsp;&nbsp;{firstname}</div>
       <Spacer />
-      <div>Last name:{lastname} </div>
+      <div>Last name:&nbsp;&nbsp;{lastname}</div>
       <Spacer />
-      <div>Phone number:{number} </div>
+      <div>Phone number:&nbsp;&nbsp;{number}</div>
       <Spacer />
-      <div>Email:{email} </div>
+      <div>Email:&nbsp;&nbsp;{email}</div>
       <Spacer />
-      <div>Password:{password} </div>
+      <div>Password:&nbsp;&nbsp;{password}</div>
     </div>
   );
 };

@@ -2,8 +2,12 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import User from "../components/User";
-import Card, { CatCard } from "../components/CatCard";
+//import Card, { CatCard } from "../components/CatCard";
 import LikeCats from "../components/Likecats";
+
+import { useQuery } from "@apollo/client";
+import { QUERY_GET_USER } from "../utils/queries";
+import Auth from "../utils/auth";
 
 const body = {
   minHeight: "55vh",
@@ -32,6 +36,20 @@ const Spacer = ({ y, x }) => {
 };
 
 function Profile() {
+
+  const userId = Auth.getUserId(); 
+
+  const { loading, data } = useQuery(QUERY_GET_USER, {
+    variables: { userId: userId },
+  });
+  const user = data?.user || {};
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  console.log(user);
+
   return (
     <>
       <Header />
@@ -40,9 +58,15 @@ function Profile() {
         <Spacer y={20} />
 
         <div style={columns}>
-          <User />
+          <User 
+            firstname={user.firstname}
+            lastname={user.lastname}
+            number={user.phonenumber}
+            email={user.email}
+            password={"**********"}
+          />
           <div style={profileContainer}>
-            <LikeCats />
+            <LikeCats cats={user.cats}/>
           </div>
         </div>
       </div>
