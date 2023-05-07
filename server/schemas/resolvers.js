@@ -15,8 +15,8 @@ const resolvers = {
     cat: async (parent, { catId }) => {
       return Cat.findOne({_id: catId})
     },
-    availableCats: async () => {
-      return Cat.find({ adopted: false })
+    availableCats: async (parent, {state, sex}) => {
+      return Cat.find({ state: {$in: state}, sex: {$in: sex}, adopted: false })
     },
     adoptedCats: async () => {
       return Cat.find({ adopted: true })

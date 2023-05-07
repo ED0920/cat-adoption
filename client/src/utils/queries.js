@@ -1,19 +1,21 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_AVAILABLE_CATS = gql`
-  query getAvailableCats {
-    availableCats {
+  query AvailableCats($state: [String]!, $sex: [String]!) {
+    availableCats(state: $state, sex: $sex) {
       _id
-      name
-      state
-      sex
+      adopted
       age
+      bioText
       breed
       colour
-      personality
+      createdAt
       imgFilename
-      bioText
-    } 
+      name
+      personality
+      sex
+      state
+    }
   }
 `;
 

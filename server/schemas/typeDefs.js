@@ -35,7 +35,7 @@ const typeDefs = gql`
     users: [User]
     allCats: [Cat]
     cat(catId: ID!): Cat
-    availableCats: [Cat]
+    availableCats(state: [String]!, sex: [String]!): [Cat]
     adoptedCats: [Cat]
     availableCatsByAge(age: Int!): [Cat]
     availableCatsByLocation(state: String!): [Cat]

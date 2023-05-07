@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
 import Dropdown from "react-bootstrap/Dropdown";
-import { useState } from "react";
 
 const body = {
   display: "grid",
@@ -74,6 +73,67 @@ const filterComponent = {
   display: "flex",
   margin: "15px",
 };
+
+// Variable to hold the search state
+
+const searchState = { location: "Any", sex: "Any"};
+
+const updateSearchState = (key, value) => {
+  if ( key === "state" ) {
+    searchState.location = value;
+  } else if ( key === "sex" ) {
+    searchState.sex = value;
+  }
+
+  console.log ("location: " + searchState.location + " sex: " + searchState.sex);
+}
+
+const getSearchState = (key) => {
+  if( key === "state" )
+  {
+    if ( searchState.location === "Any") {
+      return null;
+    }
+
+    return searchState.location;
+  }
+
+  if( key === "sex" )
+  {
+    if ( searchState.sex === "Any") {
+      return null;
+    }
+
+    return searchState.sex;
+  }
+
+  return null;
+}
+
+const getSearchTerm = (key) => {
+  if( key === "state" )
+  {
+    if ( searchState.location === "Any") {
+      return ['NSW', 'Vic', 'Qld', 'SA', 'WA', 'Tas', 'NT', 'ACT'];
+    } 
+
+    return [searchState.location];
+  }
+
+  if( key === "sex" )
+  {
+    if ( searchState.sex === "Any") {
+      return ['Male', 'Female'];
+    } 
+
+    return [searchState.sex];
+  }
+
+  // This shouldn't happen
+  return [];
+
+}
+
 const Spacer = ({ y = 10, x = 0 }) => {
   return <div style={{ height: y, width: x }} />;
 };
@@ -112,11 +172,14 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
 
 function StateDropdown() {
   const [state, setState] = useState("");
+  let lastKnownState = getSearchState("state");
 
   return (
     <Dropdown
       onSelect={(eventKey, event) => {
+        console.log(eventKey);
         setState(eventKey);
+        updateSearchState("state", eventKey);
       }}
     >
       <Dropdown.Toggle
@@ -124,27 +187,35 @@ function StateDropdown() {
         variant="success"
         id="dropdown-basic"
       >
-        {state || "Select State"}
+        {state || lastKnownState || "Select State"}
       </Dropdown.Toggle>
 
+      {/* 'NSW', 'Vic', 'Qld', 'SA', 'WA', 'Tas', 'NT', 'ACT' */}
       <Dropdown.Menu>
+        <Dropdown.Item eventKey={"Any"}>Any</Dropdown.Item>
         <Dropdown.Item eventKey={"NSW"}>NSW</Dropdown.Item>
-        <Dropdown.Item eventKey={"ACT"}>ACT</Dropdown.Item>
-        <Dropdown.Item eventKey={"QLD"}>QLD</Dropdown.Item>
-        <Dropdown.Item eventKey={"NT"}>NT</Dropdown.Item>
+        <Dropdown.Item eventKey={"Vic"}>VIC</Dropdown.Item>
+        <Dropdown.Item eventKey={"Qld"}>QLD</Dropdown.Item>
         <Dropdown.Item eventKey={"SA"}>SA</Dropdown.Item>
         <Dropdown.Item eventKey={"WA"}>WA</Dropdown.Item>
-        <Dropdown.Item eventKey={"TAS"}>TAS</Dropdown.Item>
+        <Dropdown.Item eventKey={"Tas"}>TAS</Dropdown.Item>
+        <Dropdown.Item eventKey={"NT"}>NT</Dropdown.Item>
+        <Dropdown.Item eventKey={"ACT"}>ACT</Dropdown.Item>  
       </Dropdown.Menu>
     </Dropdown>
   );
 }
-function BreedDropdown() {
-  const [state, setState] = useState("");
+
+function SexDropdown() {
+  const [sex, setSex] = useState("");
+  let lastKnownSex = getSearchState("sex");
+
   return (
     <Dropdown
       onSelect={(eventKey, event) => {
-        setState(eventKey);
+        console.log(eventKey);
+        setSex(eventKey);
+        updateSearchState("sex", eventKey);
       }}
     >
       <Dropdown.Toggle
@@ -152,10 +223,11 @@ function BreedDropdown() {
         variant="success"
         id="dropdown-basic"
       >
-        {state || "Select State"}
+        {sex || lastKnownSex || "Select Sex"}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
+        <Dropdown.Item eventKey={"Any"}>Any</Dropdown.Item>
         <Dropdown.Item eventKey={"Female"}>Female</Dropdown.Item>
         <Dropdown.Item eventKey={"Male"}>Male</Dropdown.Item>
       </Dropdown.Menu>
@@ -163,9 +235,28 @@ function BreedDropdown() {
   );
 }
 
+
+
 const CatCardContainer = () => {
-  const { loading, data } = useQuery(QUERY_AVAILABLE_CATS);
-  const cats = data?.availableCats || [];
+
+  const [searchUpdated, setSearchUpdated] = useState(0);
+
+  const handleFilter = () => {
+    setSearchUpdated(searchUpdated + 1);
+  }
+
+  // Get the search state
+  const statesToSearch = getSearchTerm("state");
+  const sexesToSearch = getSearchTerm("sex");
+
+  console.log(statesToSearch);
+  console.log(sexesToSearch);
+
+
+  let { loading, data } = useQuery(QUERY_AVAILABLE_CATS, {
+    variables: { state: statesToSearch, sex: sexesToSearch},
+  });
+  let cats = data?.availableCats || [];
 
   console.log(cats);
 
@@ -178,9 +269,9 @@ const CatCardContainer = () => {
         </div>
         <div style={filterComponent}>
           <h3>Sex:</h3>
-          <BreedDropdown />
+          <SexDropdown />
         </div>
-        <button style={search}> Search</button>
+        <button style={search} onClick={handleFilter}>Search</button>
       </div>
       <div style={body}>
         {cats.map((cat) => {
