@@ -32,15 +32,12 @@ const image = {
   borderRadius: "10px",
 };
 const details = {
-  padding: "10px",
+  marginBottom: "10px",
+  padding: "5px",
   justifyContent: "center",
   border: "3px solid #444c54",
   color: "white",
   fontSize: "20px",
-};
-const icon = {
-  float: "right",
-  color: "#C89B7B",
 };
 
 const filterBody = {
@@ -64,6 +61,18 @@ const search = {
   margin: "15px",
   color: "white",
 };
+
+const adoptMe = {
+  background: "#C89B7B",
+  border: " solid 3px #444b54",
+  borderRadius: "7px ",
+  width: "125px",
+  color: "#444b54",
+  float: "right",
+  marginBottom: "20px",
+  fontSize: "15px",
+};
+
 const filterComponent = {
   display: "flex",
   margin: "15px",
@@ -88,20 +97,16 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
             <b>{name}</b>
           </div>
           <Spacer />
-          <div>{age}</div>
+          <div>Age: {age}</div>
           <Spacer />
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
-
-          <div>
-            <button>
-              <Link to={"/login"}>
-                <b>Adopt Me</b>
-              </Link>
-            </button>
-
-          </div>
+          <button style={adoptMe}>
+            <Link style={{ color: "#444b54" }} to={"/login"}>
+              <b>Adopt Me</b>
+            </Link>
+          </button>
         </div>
       </div>
     </div>
