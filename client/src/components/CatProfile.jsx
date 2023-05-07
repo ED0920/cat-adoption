@@ -86,8 +86,7 @@ const Cat = ({
       console.error(e);
     }
 
-    window.location.reload(true);
-
+    window.location.assign('/');
   };
 
   return (
