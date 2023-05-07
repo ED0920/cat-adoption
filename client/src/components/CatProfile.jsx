@@ -86,7 +86,7 @@ const Cat = ({
       console.error(e);
     }
 
-    //window.location.assign('/profile');
+    window.location.reload(true);
 
   };
 
@@ -135,9 +135,7 @@ const Cat = ({
             <>
               <div>
                 <button onClick={handleAdoption} style={adoptMe}>
-                  <Link to={'/profile'}>
-                    <b style={link}>Adopt me now</b>
-                  </Link>
+                  <b style={link}>Adopt me now</b>
                 </button>
               </div>
             </>
