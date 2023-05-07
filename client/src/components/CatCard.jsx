@@ -93,12 +93,14 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
+
           <div>
             <button>
               <Link to={"/login"}>
                 <b>Adopt Me</b>
               </Link>
             </button>
+
           </div>
         </div>
       </div>
