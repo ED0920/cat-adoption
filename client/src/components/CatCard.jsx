@@ -8,6 +8,7 @@ import { useQuery } from "@apollo/client";
 import { QUERY_AVAILABLE_CATS } from "../utils/queries";
 
 import Dropdown from "react-bootstrap/Dropdown";
+import { useState } from "react";
 
 const body = {
   display: "grid",
@@ -75,9 +76,12 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
   return (
     <div>
       <div style={cardContainer}>
-
-        <Link to={`/cats/${id}`}> 
-          <img style={image} src={require(`../assets/${imgUrl}`)} alt="cat img" />
+        <Link to={`/cats/${id}`}>
+          <img
+            style={image}
+            src={require(`../assets/${imgUrl}`)}
+            alt="cat img"
+          />
         </Link>
         <div style={details}>
           <div>
@@ -89,53 +93,67 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
-          <div><Button><Link to={"/login"}>
-              <b style={link}>Adopt Me</b>
-            </Link></Button></div>
+          <div>
+            <button>
+              <Link to={"/login"}>
+                <b>Adopt Me</b>
+              </Link>
+            </button>
           </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };
 
 function StateDropdown() {
+  const [state, setState] = useState("");
+
   return (
-    <Dropdown>
+    <Dropdown
+      onSelect={(eventKey, event) => {
+        setState(eventKey);
+      }}
+    >
       <Dropdown.Toggle
         style={dropdownStyle}
         variant="success"
         id="dropdown-basic"
       >
-        Select State
+        {state || "Select State"}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">NSW</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">ACT</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">QLD</Dropdown.Item>
-        <Dropdown.Item href="#/action-4">NT</Dropdown.Item>
-        <Dropdown.Item href="#/action-5">SA</Dropdown.Item>
-        <Dropdown.Item href="#/action-6">WA</Dropdown.Item>
-        <Dropdown.Item href="#/action-7">TAS</Dropdown.Item>
+        <Dropdown.Item eventKey={"NSW"}>NSW</Dropdown.Item>
+        <Dropdown.Item eventKey={"ACT"}>ACT</Dropdown.Item>
+        <Dropdown.Item eventKey={"QLD"}>QLD</Dropdown.Item>
+        <Dropdown.Item eventKey={"NT"}>NT</Dropdown.Item>
+        <Dropdown.Item eventKey={"SA"}>SA</Dropdown.Item>
+        <Dropdown.Item eventKey={"WA"}>WA</Dropdown.Item>
+        <Dropdown.Item eventKey={"TAS"}>TAS</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
 }
 function BreedDropdown() {
+  const [state, setState] = useState("");
   return (
-    <Dropdown>
+    <Dropdown
+      onSelect={(eventKey, event) => {
+        setState(eventKey);
+      }}
+    >
       <Dropdown.Toggle
         style={dropdownStyle}
         variant="success"
         id="dropdown-basic"
       >
-        Select Sex
+        {state || "Select State"}
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Female</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Male</Dropdown.Item>
+        <Dropdown.Item eventKey={"Female"}>Female</Dropdown.Item>
+        <Dropdown.Item eventKey={"Male"}>Male</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
