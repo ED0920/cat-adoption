@@ -36,12 +36,21 @@ const image = {
 const details = {
   padding: "30px",
   justifyContent: "center",
-
   minWidth: "300px",
 };
 
 const link = {
   textDecoration: "underline",
+  color: "#444b54",
+};
+const adoptMe = {
+  background: "#C89B7B",
+  border: "none",
+  borderRadius: "7px",
+  width: "125px",
+  color: "#444b54",
+  fontSize: "15px",
+  padding: "10px",
 };
 
 const Cat = ({
@@ -97,9 +106,11 @@ const Cat = ({
           </div>
           <Spacer y={100} />
           <div>
-            <Link to={"/login"}>
-              <b style={link}>Adopt me now</b>
-            </Link>
+            <button style={adoptMe}>
+              <Link to={"/login"}>
+                <b style={link}>Adopt me now</b>
+              </Link>
+            </button>
           </div>
         </div>
       </div>{" "}
