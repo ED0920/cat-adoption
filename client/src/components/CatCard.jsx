@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 
 import { useQuery } from "@apollo/client";
 import { QUERY_AVAILABLE_CATS } from "../utils/queries";
@@ -102,18 +99,11 @@ const CatCard = ({ id, name, location, age, breed, imgUrl }) => {
           <div>{location}</div>
           <Spacer />
           <div>{breed}</div>
-<<<<<<< HEAD
-          <div><button><Link to={"/login"}>
-              <b>Adopt Me</b>
-            </Link></button>
-          </div>
-=======
           <button style={adoptMe}>
             <Link style={{ color: "#444b54" }} to={"/login"}>
               <b>Adopt Me</b>
             </Link>
           </button>
->>>>>>> 25760da170acbe484d1eb7264cd12a4bd55f1e5a
         </div>
       </div>
     </div>
