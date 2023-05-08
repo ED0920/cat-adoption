@@ -65,9 +65,11 @@ function Profile() {
             email={user.email}
             password={"**********"}
           />
-          <div style={profileContainer}>
-            <LikeCats cats={user.cats}/>
-          </div>
+          {user.cats.length > 0 &&
+            <div style={profileContainer}>
+              <LikeCats cats={user.cats}/>
+            </div>
+          }
         </div>
       </div>
       <Footer />
