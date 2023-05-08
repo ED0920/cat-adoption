@@ -66,6 +66,6 @@ This software uses the following open source packages:
 
 ## Contact
 
-> &nbsp;&middot;&nbsp;[anotherchance.com](https://hidden-river-85974.herokuapp.com/) &nbsp;&middot;&nbsp;
-> GitHub [@ED0920](https://github.com/ED0920/cat-adoption)
-> Heroku [](https://hidden-river-85974.herokuapp.com/)
+> &nbsp;&middot;&nbsp;[anotherchance.com](https://hidden-river-85974.herokuapp.com/)
+> &nbsp;&middot;&nbsp; GitHub [@ED0920](https://github.com/ED0920/cat-adoption)
+> &nbsp;&middot;&nbsp; GitHub [@BhatJ](https://github.com/BhatJ)
