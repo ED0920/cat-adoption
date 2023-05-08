@@ -74,9 +74,6 @@ const Cat = ({
 
   const handleAdoption = async (event) => {
     event.preventDefault();
-    
-    console.log("userId: " + userId);
-    console.log("catId: " + id);
 
     try {
       const { data } = await adopt({
