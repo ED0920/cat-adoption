@@ -138,11 +138,9 @@ const Cat = ({
           ) : (
             <>
               <div>
-                <button style={adoptMe}>
-                  <Link to={"/login"}>
-                    <b style={link}>Login to adopt me</b>
-                  </Link>
-                </button>
+                <Link to={"/login"}>
+                  <b style={link}>Login to adopt me!</b>
+                </Link>
               </div>
             </>
           )}
