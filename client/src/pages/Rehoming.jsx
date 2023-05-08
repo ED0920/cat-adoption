@@ -39,7 +39,7 @@ function Rehoming() {
               <li>What is your family like?</li>
               <li>Is your home environment suitable?</li>
               <li>Do you have any experience with cats?</li>
-              <li>Do you ahve any other pets?</li>
+              <li>Do you have any other pets?</li>
             </ul>
           </li>
           <Spacer y={20} />

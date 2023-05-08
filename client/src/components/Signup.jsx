@@ -72,14 +72,12 @@ function SignUp() {
       password: inputs.password,
     };
 
-    console.log(newUser);
-
     try {
       const { data } = await addUser({
         variables: newUser,
       });
 
-      Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token, data.addUser.user._id);
     } catch (e) {
       console.error(e);
     }
